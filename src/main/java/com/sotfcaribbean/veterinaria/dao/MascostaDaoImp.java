@@ -2,7 +2,6 @@ package com.sotfcaribbean.veterinaria.dao;
 
 import com.sotfcaribbean.veterinaria.dto.Mascota;
 import com.sotfcaribbean.veterinaria.exception.ExceptionDao;
-import com.sotfcaribbean.veterinaria.mapper.ClienteMapper;
 import com.sotfcaribbean.veterinaria.mapper.MascotaMapper;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;

@@ -18,12 +18,14 @@ public class UsuarioDaoImp implements UsuarioDao {
 
     @Override
     public void update(Usuario user) throws ExceptionDao {
+        String UPDATE = "UPDATE usuario SET nombre =?,correo = ?,contrasena = ?,estado = ?,rol = ? WHERE idUsuario = ?;";
+        try {
+            jdbcTemplate.update(UPDATE, user.getNombre(), user.getCorreo(),
+                    user.getContraseña(), user.getEstado(), user.getRol());
 
-    }
-
-    @Override
-    public void delete(Usuario user) throws ExceptionDao {
-
+        } catch (Exception e) {
+            throw new ExceptionDao(e);
+        }
     }
 
     @Override

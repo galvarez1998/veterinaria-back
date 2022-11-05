@@ -1,9 +1,7 @@
 package com.sotfcaribbean.veterinaria.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.sql.Date;
-import java.time.LocalDate;
+
 
 public class Mascota {
     private int idMascota;
