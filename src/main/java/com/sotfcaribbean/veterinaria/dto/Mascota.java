@@ -2,15 +2,17 @@ package com.sotfcaribbean.veterinaria.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class Mascota {
     private int idMascota;
     private String nombre;
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private LocalDate fecha_nac;
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private LocalDate fecha_reg;
+
+    private Date fecha_nac;
+
+    private Date fecha_reg;
+    private String especie;
     private int idUsuario;
     private int idRaza;
 
@@ -30,20 +32,28 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public LocalDate getFecha_nac() {
+    public Date getFecha_nac() {
         return fecha_nac;
     }
 
-    public void setFecha_nac(LocalDate fecha_nac) {
+    public void setFecha_nac(Date fecha_nac) {
         this.fecha_nac = fecha_nac;
     }
 
-    public LocalDate getFecha_reg() {
+    public Date getFecha_reg() {
         return fecha_reg;
     }
 
-    public void setFecha_reg(LocalDate fecha_reg) {
+    public void setFecha_reg(Date fecha_reg) {
         this.fecha_reg = fecha_reg;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
 
     public int getIdUsuario() {

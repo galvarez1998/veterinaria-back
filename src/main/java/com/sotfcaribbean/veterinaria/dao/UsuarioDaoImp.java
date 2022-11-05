@@ -17,11 +17,6 @@ public class UsuarioDaoImp implements UsuarioDao {
     }
 
     @Override
-    public void insert(Usuario user) throws ExceptionDao {
-
-    }
-
-    @Override
     public void update(Usuario user) throws ExceptionDao {
 
     }
@@ -36,8 +31,4 @@ public class UsuarioDaoImp implements UsuarioDao {
         return null;
     }
 
-    @Override
-    public List<Usuario> listado() throws ExceptionDao {
-        return null;
-    }
 }
