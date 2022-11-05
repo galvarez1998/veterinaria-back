@@ -7,5 +7,5 @@ public interface MascotaDao {
     void insert(Mascota mascota) throws ExceptionDao;
     void update(Mascota mascota)throws ExceptionDao;
     void delete(Mascota mascota)throws ExceptionDao;
-    Mascota consul(int id)throws ExceptionDao;
+    Mascota consul(int id);
 }

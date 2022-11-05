@@ -1,1 +1,6 @@
+com\sotfcaribbean\veterinaria\manager\ClienteManagerImp.class
+com\sotfcaribbean\veterinaria\controler\ClienteControler.class
+com\sotfcaribbean\veterinaria\configur\SwaggerConfig.class
+com\sotfcaribbean\veterinaria\manager\ClienteManager.class
+com\sotfcaribbean\veterinaria\exception\ExceptionManager.class
 com\sotfcaribbean\veterinaria\VeterinariaApplication.class

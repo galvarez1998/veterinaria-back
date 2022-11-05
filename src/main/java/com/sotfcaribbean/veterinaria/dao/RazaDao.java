@@ -7,5 +7,5 @@ public interface RazaDao {
     void insert(Raza raza) throws ExceptionDao;
     void update(Raza raza)throws ExceptionDao;
     void delete(Raza raza)throws ExceptionDao;
-    Raza consul(int id)throws ExceptionDao;
+    Raza consul(int id);
 }

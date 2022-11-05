@@ -9,6 +9,6 @@ public interface ClienteDao {
     void insert(Cliente cliente) throws ExceptionDao;
     void update(Cliente cliente)throws ExceptionDao;
     void delete(Cliente cliente)throws ExceptionDao;
-    Cliente consul(int id)throws ExceptionDao;
+    Cliente consul(int id);
     List<Cliente> listado() throws ExceptionDao;
 }

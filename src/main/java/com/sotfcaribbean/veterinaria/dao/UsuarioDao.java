@@ -6,5 +6,5 @@ import com.sotfcaribbean.veterinaria.exception.ExceptionDao;
 
 public interface UsuarioDao  {
     void update(Usuario user)throws ExceptionDao;
-    Usuario consul(int id)throws ExceptionDao;
+    Usuario consul(int id);
 }

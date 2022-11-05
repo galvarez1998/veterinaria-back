@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MascostaDaoImp implements MascotaDao{
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public MascostaDaoImp(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -32,7 +32,7 @@ public class MascostaDaoImp implements MascotaDao{
     @Override
     public void update(Mascota mascota) throws ExceptionDao {
         String UPDATE = "UPDATE mascotas SET nombre = ?, fecha_nac = ?, fecha_reg= ?, especie = ?, idCliente = ?, idRaza = ? " +
-                        "WHERE idMascotas = ?";
+                        "WHERE idMascota = ?";
         try {
             jdbcTemplate.update(UPDATE, mascota.getNombre(), mascota.getFecha_nac(),
                     mascota.getFecha_reg(), mascota.getEspecie(), mascota.getIdUsuario(),
@@ -45,7 +45,7 @@ public class MascostaDaoImp implements MascotaDao{
 
     @Override
     public void delete(Mascota mascota) throws ExceptionDao {
-        String DELETE = "DELETE mascotas FROM cliente WHERE idMascotas = ?";
+        String DELETE = "DELETE  FROM mascotas WHERE idMascota = ?";
         try {
             jdbcTemplate.update(DELETE,mascota.getIdMascota());
 
@@ -55,8 +55,8 @@ public class MascostaDaoImp implements MascotaDao{
     }
 
     @Override
-    public Mascota consul(int id) throws ExceptionDao {
-        String SELECT = "SELECT idMascota,nombre,fecha_nac,fecha_reg,especie,idCliente,idRaza FROM veterinaria";
+    public Mascota consul(int id) {
+        String SELECT = "SELECT idMascota,nombre,fecha_nac,fecha_reg,especie,idCliente,idRaza FROM mascotas";
         try {
             return jdbcTemplate.queryForObject(SELECT, new MascotaMapper(), id);
         } catch (EmptyResultDataAccessException ex) {

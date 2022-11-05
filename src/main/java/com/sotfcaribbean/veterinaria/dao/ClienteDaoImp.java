@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public class ClienteDaoImp implements ClienteDao {
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public ClienteDaoImp(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -31,7 +31,7 @@ public class ClienteDaoImp implements ClienteDao {
 
     @Override
     public void update(Cliente cliente) throws ExceptionDao {
-        String UPDATE = "UPDATE cliente SET tipo_documento = ?,nombre = ?,ciudad = ?,direccion = ?,telefono = ? WHERE documento = ?;";
+        String UPDATE = "UPDATE cliente SET tipo_documento = ?,nombre = ?,ciudad = ?,direccion = ?,telefono = ? WHERE documento = ?";
         try {
             jdbcTemplate.update(UPDATE, cliente.getTipoDocumento(), cliente.getNombre(),
                     cliente.getCiudad(), cliente.getDireccion(), cliente.getTelefono(), cliente.getDocumento());
@@ -53,7 +53,7 @@ public class ClienteDaoImp implements ClienteDao {
     }
 
     @Override
-    public Cliente consul(int id) throws ExceptionDao {
+    public Cliente consul(int id) {
         String SELECT = "SELECT tipo_documento,documento,nombre,ciudad,direccion,telefono FROM cliente WHERE documento = ?";
         try {
             return jdbcTemplate.queryForObject(SELECT, new ClienteMapper(), id);
