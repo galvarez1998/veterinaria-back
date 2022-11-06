@@ -1,9 +1,9 @@
 package com.sotfcaribbean.veterinaria.controler;
 
-import com.sotfcaribbean.veterinaria.dto.Cliente;
+import com.sotfcaribbean.veterinaria.dto.Mascota;
 import com.sotfcaribbean.veterinaria.dto.Respuesta;
 import com.sotfcaribbean.veterinaria.exception.ExceptionManager;
-import com.sotfcaribbean.veterinaria.manager.ClienteManager;
+import com.sotfcaribbean.veterinaria.manager.MascotaManager;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,37 +11,36 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/")
 @CrossOrigin("*")
-public class ClienteControler {
-    private final ClienteManager clienteManager;
+public class MascotaControler {
+    private final MascotaManager mascotaManager;
 
-    public ClienteControler(ClienteManager clienteManager) {
-        this.clienteManager = clienteManager;
+    public MascotaControler(MascotaManager mascotaManager) {
+        this.mascotaManager = mascotaManager;
     }
-
-    @PostMapping(path = "/Cliente/registrar")
-    public @ResponseBody void registrar(@RequestBody Cliente cliente) {
+    @PostMapping(path = "/Mascota/registrar")
+    public @ResponseBody void registrar(@RequestBody Mascota mascota) {
         try {
-            clienteManager.registrar(cliente);
+            mascotaManager.registrar(mascota);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @DeleteMapping (path = "/Cliente/borra")
+    @DeleteMapping (path = "/Mascota/borra")
     public @ResponseBody void borrar(@RequestParam int id) {
-        Cliente cliente  = new Cliente();
-        cliente.setDocumento(id);
+        Mascota mascota  = new Mascota();
+        mascota.setIdMascota(id);
         try {
-            clienteManager.eliminar(cliente);
+            mascotaManager.eliminar(mascota);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    @GetMapping(path = "/Cliente/lista")
+    @GetMapping(path = "/Mascota/lista")
     public Respuesta lista(){
         Respuesta respuesta = new Respuesta();
         try {
-            List<Cliente> lista = clienteManager.listado();
+            List<Mascota> lista = mascotaManager.listado();
             respuesta.setData(lista);
             respuesta.setCodigo(0);
         } catch (ExceptionManager e) {
@@ -50,10 +49,10 @@ public class ClienteControler {
         }
         return respuesta;
     }
-    @PutMapping(path = "/Cliente/actualizar")
-    public @ResponseBody void actualizar(Cliente cliente){
+    @PutMapping(path = "/Mascota/actualizar")
+    public @ResponseBody void actualizar(Mascota mascota){
         try {
-            clienteManager.editar(cliente);
+            mascotaManager.editar(mascota);
         } catch (Exception e) {
             e.printStackTrace();
         }
