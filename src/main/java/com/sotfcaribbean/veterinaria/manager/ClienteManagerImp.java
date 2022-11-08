@@ -27,7 +27,8 @@ public class ClienteManagerImp implements ClienteManager {
                 mensaje = "Se ha ingresado correctamente el cliente";
                 System.out.println(mensaje);
             } else {
-                mensaje = "El usuario exite en la base de dato";
+                this.clienteDao.update(cliente);
+                mensaje = "El usuario se actualizo en la base de datos";
                 System.out.println(mensaje);
 
             }
@@ -41,16 +42,14 @@ public class ClienteManagerImp implements ClienteManager {
     public void editar(Cliente cliente) throws ExceptionManager {
         String mensaje;
         try {
-            if (this.clienteDao.consul(cliente.getDocumento()) != null) {
+            if (this.clienteDao.consul(cliente.getDocumento()) == null) {
+                mensaje = "El Cliente no exite en la base de dato";
+                System.out.println(mensaje);
+            } else {
                 this.clienteDao.update(cliente);
                 mensaje = "El Cliente se actualizo corrrectamente";
                 System.out.println(mensaje);
-            } else {
-                mensaje = "El Cliente no exite en la base de dato";
-                System.out.println(mensaje);
-
             }
-
         } catch (ExceptionDao e) {
 
             throw new ExceptionManager(e);

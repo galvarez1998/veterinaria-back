@@ -62,14 +62,14 @@ public class MascotaManagerImp implements MascotaManager{
         try {
             Mascota masco = mascotaDao.consul(mascota.getIdMascota());
             if (masco == null) {
-                mensaje = "El usuario no existe";
+                mensaje = "La mascota no existe";
                 System.out.println(mensaje);
-
             } else {
                 mascotaDao.delete(mascota);
-                mensaje = "El usuario se ha eliminado correctamente";
+                mensaje = "La mascota se ha eliminado correctamente";
                 System.out.println(mensaje);
             }
+            System.out.println(mensaje);
         } catch (ExceptionDao e) {
             throw new ExceptionManager(e);
         }

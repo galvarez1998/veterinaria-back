@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class MascostaDaoImp implements MascotaDao{
+public class MascostaDaoImp implements MascotaDao {
     private final JdbcTemplate jdbcTemplate;
 
     public MascostaDaoImp(JdbcTemplate jdbcTemplate) {
@@ -19,12 +19,10 @@ public class MascostaDaoImp implements MascotaDao{
 
     @Override
     public void insert(Mascota mascota) throws ExceptionDao {
-        String INSERT = "INSERT INTO mascotas(idMascota,nombre,fecha_nac,fecha_reg,especie,idCliente,idRaza)" +
-                        "VALUES(?,?,?,?,?,?,?)";
+        String INSERT = "INSERT INTO mascotas(idMascota,nombre,fecha_nac,fecha_reg,idCliente,idEspecie,raza) VALUES(?,?,?,?,?,?,?)";
         try {
             jdbcTemplate.update(INSERT, mascota.getIdMascota(), mascota.getNombre(), mascota.getFecha_nac(),
-                    mascota.getFecha_reg(), mascota.getEspecie(), mascota.getIdUsuario(),
-                    mascota.getIdRaza());
+                    mascota.getFecha_reg(), mascota.getIdCliente(),mascota.getIdEspecie(), mascota.getRaza());
 
         } catch (Exception e) {
             throw new ExceptionDao(e);
@@ -33,12 +31,12 @@ public class MascostaDaoImp implements MascotaDao{
 
     @Override
     public void update(Mascota mascota) throws ExceptionDao {
-        String UPDATE = "UPDATE mascotas SET nombre = ?, fecha_nac = ?, fecha_reg= ?, especie = ?, idCliente = ?, idRaza = ? " +
-                        "WHERE idMascota = ?";
+        String UPDATE = "UPDATE mascotas SET nombre = ?, fecha_nac = ?, fecha_reg= ?, raza = ?, idCliente = ?, idEspecie = ? " +
+                "WHERE idMascota = ?";
         try {
             jdbcTemplate.update(UPDATE, mascota.getNombre(), mascota.getFecha_nac(),
-                    mascota.getFecha_reg(), mascota.getEspecie(), mascota.getIdUsuario(),
-                    mascota.getIdRaza(),mascota.getIdMascota());
+                    mascota.getFecha_reg(), mascota.getRaza(), mascota.getIdCliente(),
+                    mascota.getIdEspecie(), mascota.getIdMascota());
 
         } catch (Exception e) {
             throw new ExceptionDao(e);
@@ -49,7 +47,7 @@ public class MascostaDaoImp implements MascotaDao{
     public void delete(Mascota mascota) throws ExceptionDao {
         String DELETE = "DELETE  FROM mascotas WHERE idMascota = ?";
         try {
-            jdbcTemplate.update(DELETE,mascota.getIdMascota());
+            jdbcTemplate.update(DELETE, mascota.getIdMascota());
 
         } catch (Exception e) {
             throw new ExceptionDao(e);
@@ -58,7 +56,7 @@ public class MascostaDaoImp implements MascotaDao{
 
     @Override
     public Mascota consul(int id) {
-        String SELECT = "SELECT nombre,fecha_nac,fecha_reg,especie,idCliente,idRaza FROM mascotas WHERE idMascota = ?";
+        String SELECT = "SELECT idMascota,nombre,fecha_nac,fecha_reg,idCliente,idEspecie,raza FROM mascotas WHERE idMascota = ?";
         try {
             return jdbcTemplate.queryForObject(SELECT, new MascotaMapper(), id);
         } catch (EmptyResultDataAccessException ex) {
@@ -68,7 +66,7 @@ public class MascostaDaoImp implements MascotaDao{
 
     @Override
     public List<Mascota> listado() throws ExceptionDao {
-        String SELECT = "SELECT idMascota,nombre,fecha_nac,fecha_reg,especie,idCliente,idRaza FROM mascotas";
+        String SELECT = "SELECT idMascota,nombre,fecha_nac,fecha_reg,idCliente,idEspecie,raza FROM mascotas";
         List<Mascota> lista;
 
         try {

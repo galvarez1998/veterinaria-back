@@ -7,12 +7,12 @@ public class Mascota {
     private int idMascota;
     private String nombre;
 
-    private Date fecha_nac;
+    private String fecha_nac;
 
-    private Date fecha_reg;
-    private String especie;
-    private int idUsuario;
-    private int idRaza;
+    private String fecha_reg;
+    private String raza;
+    private int idCliente;
+    private int idEspecie;
 
     public int getIdMascota() {
         return idMascota;
@@ -30,43 +30,43 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public Date getFecha_nac() {
+    public String getFecha_nac() {
         return fecha_nac;
     }
 
-    public void setFecha_nac(Date fecha_nac) {
+    public void setFecha_nac(String fecha_nac) {
         this.fecha_nac = fecha_nac;
     }
 
-    public Date getFecha_reg() {
+    public String getFecha_reg() {
         return fecha_reg;
     }
 
-    public void setFecha_reg(Date fecha_reg) {
+    public void setFecha_reg(String fecha_reg) {
         this.fecha_reg = fecha_reg;
     }
 
-    public String getEspecie() {
-        return especie;
+    public String getRaza() {
+        return raza;
     }
 
-    public void setEspecie(String especie) {
-        this.especie = especie;
+    public void setRaza(String raza) {
+        this.raza = raza;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public int getIdRaza() {
-        return idRaza;
+    public int getIdEspecie() {
+        return idEspecie;
     }
 
-    public void setIdRaza(int idRaza) {
-        this.idRaza = idRaza;
+    public void setIdEspecie(int idEspecie) {
+        this.idEspecie = idEspecie;
     }
 }

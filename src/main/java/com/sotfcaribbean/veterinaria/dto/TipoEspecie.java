@@ -1,15 +1,15 @@
 package com.sotfcaribbean.veterinaria.dto;
 
-public class Raza {
-    private int idRaza;
+public class TipoEspecie {
+    private int idEspecie;
     private String nombre;
 
-    public int getIdRaza() {
-        return idRaza;
+    public int getIdEspecie() {
+        return idEspecie;
     }
 
-    public void setIdRaza(int idRaza) {
-        this.idRaza = idRaza;
+    public void setIdEspecie(int idEspecie) {
+        this.idEspecie = idEspecie;
     }
 
     public String getNombre() {

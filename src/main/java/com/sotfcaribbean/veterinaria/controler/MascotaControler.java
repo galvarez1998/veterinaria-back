@@ -17,7 +17,7 @@ public class MascotaControler {
     public MascotaControler(MascotaManager mascotaManager) {
         this.mascotaManager = mascotaManager;
     }
-    @PostMapping(path = "/Mascota/registrar")
+    @PostMapping(path = "Mascota/registrar")
     public @ResponseBody void registrar(@RequestBody Mascota mascota) {
         try {
             mascotaManager.registrar(mascota);
@@ -26,7 +26,7 @@ public class MascotaControler {
         }
     }
 
-    @DeleteMapping (path = "/Mascota/borra")
+    @DeleteMapping (path = "Mascota/borra")
     public @ResponseBody void borrar(@RequestParam int id) {
         Mascota mascota  = new Mascota();
         mascota.setIdMascota(id);
@@ -36,7 +36,7 @@ public class MascotaControler {
             e.printStackTrace();
         }
     }
-    @GetMapping(path = "/Mascota/lista")
+    @GetMapping(path = "Mascota/lista")
     public Respuesta lista(){
         Respuesta respuesta = new Respuesta();
         try {
@@ -49,7 +49,7 @@ public class MascotaControler {
         }
         return respuesta;
     }
-    @PutMapping(path = "/Mascota/actualizar")
+    @PutMapping(path = "Mascota/actualizar")
     public @ResponseBody void actualizar(Mascota mascota){
         try {
             mascotaManager.editar(mascota);

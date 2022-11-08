@@ -12,11 +12,11 @@ public class MascotaMapper implements RowMapper<Mascota> {
         Mascota mascota = new Mascota();
         mascota.setIdMascota(rs.getInt("idMascota"));
         mascota.setNombre(rs.getString("nombre"));
-        mascota.setFecha_nac(rs.getDate("fecha_nac"));
-        mascota.setFecha_reg(rs.getDate("fecha_reg"));
-        mascota.setEspecie(rs.getString("especie"));
-        mascota.setIdUsuario(rs.getInt("idCliente"));
-        mascota.setIdRaza(rs.getInt("idRaza"));
+        mascota.setFecha_nac(rs.getString("fecha_nac"));
+        mascota.setFecha_reg(rs.getString("fecha_reg"));
+        mascota.setRaza(rs.getString("raza"));
+        mascota.setIdCliente(rs.getInt("idCliente"));
+        mascota.setIdEspecie(rs.getInt("idEspecie"));
         return mascota;
     }
 }

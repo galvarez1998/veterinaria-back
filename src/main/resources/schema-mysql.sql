@@ -1,4 +1,4 @@
-CREATE SCHEMA IF NOT EXISTS veterinaria ;
+/*CREATE SCHEMA IF NOT EXISTS veterinaria ;
 USE veterinaria ;
 
 CREATE TABLE IF NOT EXISTS veterinaria.Usuario(
@@ -40,3 +40,4 @@ alter table Mascotas
 
     add  constraint FK_mas_raz_idRaza foreign key (idRaza)
         references Raza(idRaza);
+*/

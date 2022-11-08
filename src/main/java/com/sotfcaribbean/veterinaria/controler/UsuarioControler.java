@@ -13,7 +13,7 @@ public class UsuarioControler {
     public UsuarioControler(UsuarioManager usuarioManager) {
         this.usuarioManager = usuarioManager;
     }
-    @PutMapping(path = "/Usuario/actualizar")
+    @PutMapping(path = "Usuario/actualizar")
     public @ResponseBody void actualizar(Usuario usuario){
         try {
             usuarioManager.editar(usuario);

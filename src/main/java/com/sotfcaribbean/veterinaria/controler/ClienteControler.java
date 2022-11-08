@@ -18,7 +18,7 @@ public class ClienteControler {
         this.clienteManager = clienteManager;
     }
 
-    @PostMapping(path = "/Cliente/registrar")
+    @PostMapping(path = "Cliente/registrar")
     public @ResponseBody void registrar(@RequestBody Cliente cliente) {
         try {
             clienteManager.registrar(cliente);
@@ -27,17 +27,17 @@ public class ClienteControler {
         }
     }
 
-    @DeleteMapping (path = "/Cliente/borra")
-    public @ResponseBody void borrar(@RequestParam int id) {
+    @DeleteMapping (path = "Cliente/borra")
+    public @ResponseBody void borrar(@RequestParam int documento) {
         Cliente cliente  = new Cliente();
-        cliente.setDocumento(id);
+        cliente.setDocumento(documento);
         try {
             clienteManager.eliminar(cliente);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    @GetMapping(path = "/Cliente/lista")
+    @GetMapping(path = "Cliente/lista")
     public Respuesta lista(){
         Respuesta respuesta = new Respuesta();
         try {
@@ -50,7 +50,7 @@ public class ClienteControler {
         }
         return respuesta;
     }
-    @PutMapping(path = "/Cliente/actualizar")
+    @PutMapping(path = "Cliente/actualizar")
     public @ResponseBody void actualizar(Cliente cliente){
         try {
             clienteManager.editar(cliente);
